@@ -25,7 +25,8 @@ Default output:
 CI:
 
 - `.github/workflows/skill-scanner.yml` runs the Cisco `skill-scanner` on push, pull request, and manual dispatch
-- the workflow uploads SARIF to GitHub Code Scanning and stores the full scan output as an artifact
+- the workflow stores the full scan output as an artifact
+- SARIF upload to GitHub Code Scanning is best-effort and only succeeds when GitHub Code Security is enabled for the repository
 - the workflow fails when the scanner reports findings at `high` severity or above
 
 ## Skills

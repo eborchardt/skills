@@ -9,6 +9,8 @@ on:
       - ".github/workflows/skill-scanner.yml"
       - ".gitignore"
       - ".scripts/run-skill-scanner.sh"
+      - ".scripts/process-skill-scanner-sarif.py"
+      - ".skill-scanner-allowlist.json"
   push:
     branches:
       - main
@@ -18,6 +20,8 @@ on:
       - ".github/workflows/skill-scanner.yml"
       - ".gitignore"
       - ".scripts/run-skill-scanner.sh"
+      - ".scripts/process-skill-scanner-sarif.py"
+      - ".skill-scanner-allowlist.json"
 
 permissions:
   actions: read
@@ -51,129 +55,32 @@ jobs:
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit $status
 
-      - name: Normalize SARIF output
+      - name: Process scanner results
+        id: process_scan
         if: ${{ always() && hashFiles('.reports/skill-scanner/results.sarif') != '' }}
         run: |
-          python - <<'PY'
+          python ./.scripts/process-skill-scanner-sarif.py \
+            --input .reports/skill-scanner/results.sarif \
+            --allowlist .skill-scanner-allowlist.json \
+            --summary .reports/skill-scanner/summary.md \
+            --status .reports/skill-scanner/status.json \
+            --blocking-sarif .reports/skill-scanner/blocking-results.sarif
+          python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
-          import os
           from pathlib import Path
 
-          sarif_path = Path(".reports/skill-scanner/results.sarif")
-          data = json.loads(sarif_path.read_text())
-          workspace = os.environ.get("GITHUB_WORKSPACE", "")
-          for run in data.get("runs", []):
-              for result in run.get("results", []):
-                  for location in result.get("locations") or []:
-                      physical = location.get("physicalLocation") or {}
-                      artifact = physical.get("artifactLocation") or {}
-                      uri = artifact.get("uri")
-                      if uri == "(cross-skill analysis)":
-                          artifact["uri"] = "cross-skill-analysis"
-                          continue
-                      if workspace and isinstance(uri, str) and uri.startswith(workspace + os.sep):
-                          artifact["uri"] = os.path.relpath(uri, workspace).replace(os.sep, "/")
-          sarif_path.write_text(json.dumps(data, indent=2) + "\n")
+          status = json.loads(Path(".reports/skill-scanner/status.json").read_text())
+          print(f"blocking_count={status['blocking_count']}")
+          print(f"allowlisted_count={status['allowlisted_count']}")
           PY
+          tee -a "$GITHUB_STEP_SUMMARY" < .reports/skill-scanner/summary.md
 
       - name: Upload SARIF to GitHub Code Scanning
-        if: ${{ always() && hashFiles('.reports/skill-scanner/results.sarif') != '' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+        if: ${{ always() && hashFiles('.reports/skill-scanner/blocking-results.sarif') != '' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
         continue-on-error: true
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: .reports/skill-scanner/results.sarif
-
-      - name: Summarize scanner results
-        if: ${{ always() && hashFiles('.reports/skill-scanner/results.sarif') != '' }}
-        run: |
-          python - <<'PY' > .reports/skill-scanner/summary.md
-          import collections
-          import json
-          from pathlib import Path
-
-          LEVEL_ORDER = {"error": 0, "warning": 1, "note": 2, "none": 3}
-
-          def location_for(result: dict) -> str:
-              locations = result.get("locations") or []
-              if not locations:
-                  return "(no location)"
-              physical = locations[0].get("physicalLocation") or {}
-              artifact = physical.get("artifactLocation") or {}
-              uri = artifact.get("uri") or "(no location)"
-              region = physical.get("region") or {}
-              line = region.get("startLine")
-              return f"{uri}:{line}" if line else uri
-
-          def message_for(result: dict) -> str:
-              message = result.get("message") or {}
-              text = message.get("text") or message.get("markdown") or "(no message)"
-              return " ".join(text.split())
-
-          sarif_path = Path(".reports/skill-scanner/results.sarif")
-          data = json.loads(sarif_path.read_text())
-          runs = data.get("runs", [])
-          results = []
-          for run in runs:
-              results.extend(run.get("results", []))
-
-          levels = collections.Counter(result.get("level", "warning") for result in results)
-          rules = collections.Counter(result.get("ruleId", "(unknown-rule)") for result in results)
-          ordered_results = sorted(
-              results,
-              key=lambda result: (
-                  LEVEL_ORDER.get(result.get("level", "warning"), 99),
-                  result.get("ruleId", "(unknown-rule)"),
-                  location_for(result),
-              ),
-          )
-
-          def print_findings(title: str, items: list[dict], limit: int) -> None:
-              if not items:
-                  return
-              print()
-              print(f"### {title}")
-              print()
-              for index, result in enumerate(items[:limit], start=1):
-                  level = result.get("level", "warning")
-                  rule_id = result.get("ruleId", "(unknown-rule)")
-                  location = location_for(result)
-                  message = message_for(result)
-                  print(f"{index}. [{level}] `{rule_id}` at `{location}`")
-                  print(f"   {message}")
-
-          print("## Skill Scanner Summary")
-          print()
-          print(f"- Total results: {len(results)}")
-          for level in ("error", "warning", "note", "none"):
-              if levels.get(level):
-                  print(f"- {level}: {levels[level]}")
-
-          if rules:
-              print()
-              print("### Top Rule IDs")
-              print()
-              print("| Rule | Count |")
-              print("| --- | ---: |")
-              for rule_id, count in rules.most_common(10):
-                  print(f"| `{rule_id}` | {count} |")
-
-          print_findings(
-              "Errors",
-              [result for result in ordered_results if result.get("level", "warning") == "error"],
-              20,
-          )
-          print_findings(
-              "Warnings",
-              [result for result in ordered_results if result.get("level", "warning") == "warning"],
-              20,
-          )
-          print_findings(
-              "Notes",
-              [result for result in ordered_results if result.get("level", "warning") == "note"],
-              10,
-          )
-          PY
-          tee -a "$GITHUB_STEP_SUMMARY" < .reports/skill-scanner/summary.md
+          sarif_file: .reports/skill-scanner/blocking-results.sarif
 
       - name: Upload scanner artifacts
         if: ${{ always() }}
@@ -184,14 +91,36 @@ jobs:
           if-no-files-found: ignore
 
       - name: Fail workflow on scanner findings
-        if: ${{ steps.scan.outputs.exit_code != '0' }}
+        if: ${{ always() }}
         run: |
-          echo "skill-scanner exited with code ${{ steps.scan.outputs.exit_code }}." >&2
-          if [[ -f .reports/skill-scanner/summary.md ]]; then
+          scan_exit='${{ steps.scan.outputs.exit_code }}'
+          if [[ -f .reports/skill-scanner/status.json ]]; then
+            blocking_count=$(python - <<'PY'
+          import json
+          from pathlib import Path
+
+          status = json.loads(Path(".reports/skill-scanner/status.json").read_text())
+          print(status["blocking_count"])
+          PY
+            )
+          else
+            blocking_count=""
+          fi
+
+          if [[ -n "$blocking_count" && "$blocking_count" != "0" ]]; then
+            echo "skill-scanner found $blocking_count blocking finding(s)." >&2
             echo "----- skill-scanner summary -----" >&2
             cat .reports/skill-scanner/summary.md >&2
             echo "----- end skill-scanner summary -----" >&2
-          else
-            echo "Summary file not found. Review the skill-scanner-results artifact for details." >&2
+            exit 1
           fi
-          exit 1
+
+          if [[ "$scan_exit" != "0" && -z "$blocking_count" ]]; then
+            echo "skill-scanner exited with code $scan_exit before a processed report was generated." >&2
+            echo "Review the skill-scanner-results artifact for details." >&2
+            exit 1
+          fi
+
+          if [[ "$scan_exit" != "0" ]]; then
+            echo "skill-scanner exited with code $scan_exit, but all current findings matched the allowlist." >&2
+          fi

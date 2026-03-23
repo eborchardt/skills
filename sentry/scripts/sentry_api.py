@@ -57,7 +57,7 @@ def request_json(url, token, retries=1):
     req.add_header("Accept", "application/json")
 
     attempt = 0
-    while True:
+    while attempt <= retries:
         try:
             with urlopen(req) as resp:
                 body = resp.read().decode("utf-8")
@@ -76,6 +76,7 @@ def request_json(url, token, retries=1):
                 time.sleep(1)
                 continue
             raise RuntimeError(f"Network error for {url}: {err.reason}") from err
+    raise RuntimeError(f"Request retries exhausted for {url}")
 
 
 def build_url(base_url, path, params=None):

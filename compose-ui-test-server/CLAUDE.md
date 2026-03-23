@@ -58,7 +58,7 @@ Built-in endpoints are in `endpoint/` package. Each endpoint class implements `T
 | `GET /onNodeWithTag/{tag}/performTextInput?text=...` | Text input |
 | `GET /waitUntilExactlyOneExists/tag/{tag}?timeout=5000` | Wait for element |
 | `GET /waitForIdle` | Wait for UI idle |
-| `GET /captureScreenshot?path=/tmp/screenshot.png` | Screenshot |
+| `GET /captureScreenshot?path=screenshot.png` | Screenshot |
 
 ## Technology Stack
 

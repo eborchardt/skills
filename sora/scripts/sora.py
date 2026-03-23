@@ -560,7 +560,7 @@ def _poll_video(
     start = time.time()
     last_status: Optional[str] = None
 
-    while True:
+    while timeout is None or (time.time() - start) <= timeout:
         video = client.videos.retrieve(video_id)
         status = _get_status(video) or "unknown"
         if status != last_status:
@@ -568,9 +568,9 @@ def _poll_video(
             last_status = status
         if status in TERMINAL_STATUSES:
             return video
-        if timeout is not None and (time.time() - start) > timeout:
-            _die(f"Timed out after {timeout:.1f}s waiting for {video_id}")
         time.sleep(poll_interval)
+    assert timeout is not None
+    _die(f"Timed out after {timeout:.1f}s waiting for {video_id}")
 
 
 def _download_content(client: Any, video_id: str, variant: str) -> Any:

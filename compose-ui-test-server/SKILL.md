@@ -154,7 +154,7 @@ curl http://localhost:54345/health
 | `GET /waitUntilExactlyOneExists/tag/{tag}?timeout=5000` | Wait for element by tag |
 | `GET /waitUntilExactlyOneExists/text/{text}?exact=true&timeout=5000` | Wait for element by text |
 | `GET /waitForIdle` | Wait for UI to stabilize |
-| `GET /captureScreenshot?path=/tmp/screenshot.png` | Capture screenshot |
+| `GET /captureScreenshot?path=screenshot.png` | Capture screenshot |
 
 ## Workflow Pattern
 
@@ -180,7 +180,7 @@ curl http://localhost:54345/onNodeWithTag/login_button/performClick
 curl "http://localhost:54345/waitUntilExactlyOneExists/tag/dashboard?timeout=10000"
 
 # 7. Capture screenshot to verify
-curl "http://localhost:54345/captureScreenshot?path=/tmp/result.png"
+curl "http://localhost:54345/captureScreenshot?path=result.png"
 ```
 
 ## Finding Test Tags

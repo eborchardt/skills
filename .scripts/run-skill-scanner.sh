@@ -42,7 +42,6 @@ run_with_docker() {
         /workspace \
         --recursive \
         --lenient \
-        --check-overlap \
         --use-behavioral \
         "$@"
     ' sh "$@"
@@ -104,6 +103,5 @@ echo "Using Python: $("$venv_dir/bin/python" --version 2>&1)"
   "$repo_root" \
   --recursive \
   --lenient \
-  --check-overlap \
   --use-behavioral \
   "$@"

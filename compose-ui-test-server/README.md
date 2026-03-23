@@ -123,7 +123,7 @@ curl "http://localhost:54345/onNodeWithTag/username_field/performTextInput?text=
 curl "http://localhost:54345/waitUntilExactlyOneExists/tag/welcome_screen?timeout=5000"
 
 # Capture a screenshot
-curl "http://localhost:54345/captureScreenshot?path=/tmp/current_state.png"
+curl "http://localhost:54345/captureScreenshot?path=current_state.png"
 ```
 
 ## Available Endpoints
@@ -137,7 +137,7 @@ curl "http://localhost:54345/captureScreenshot?path=/tmp/current_state.png"
 | `GET /waitUntilExactlyOneExists/tag/{tag}?timeout=5000` | Wait for element by tag |
 | `GET /waitUntilExactlyOneExists/text/{text}?exact=true&timeout=5000` | Wait for element by text |
 | `GET /waitForIdle` | Wait for UI to become idle |
-| `GET /captureScreenshot?path=/tmp/screenshot.png` | Capture screenshot to file |
+| `GET /captureScreenshot?path=screenshot.png` | Capture screenshot to file |
 
 ## Environment Variables
 
@@ -163,7 +163,7 @@ fun main() =
         serverConfig = ComposeUiTestServerConfig(
             port = 8080,
             host = "0.0.0.0",
-            defaultScreenshotPath = "/tmp/app_screenshot.png",
+            defaultScreenshotPath = "app_screenshot.png",
             defaultTimeout = 10_000L,
         ),
     ) {

@@ -9,23 +9,24 @@ compose-ui-test-server is a Kotlin library that enables AI coding agents and aut
 ## Build Commands
 
 ```bash
-# Build and run tests
-./gradlew build --warning-mode fail
+# This mirrored skill omits the Gradle wrapper JAR.
+# Use an installed Gradle distribution or the upstream repository wrapper.
+gradle build --warning-mode fail
 
 # Run tests only
-./gradlew test
+gradle test
 
 # Run the application in normal mode
-./gradlew run
+gradle run
 
 # Run with test server enabled (for agent control)
-COMPOSE_UI_TEST_SERVER_ENABLED=true ./gradlew run
+COMPOSE_UI_TEST_SERVER_ENABLED=true gradle run
 
 # Run with custom port
-COMPOSE_UI_TEST_SERVER_ENABLED=true COMPOSE_UI_TEST_SERVER_PORT=8080 ./gradlew run
+COMPOSE_UI_TEST_SERVER_ENABLED=true COMPOSE_UI_TEST_SERVER_PORT=8080 gradle run
 
 # Publish to Maven Central (release only)
-./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+gradle publishAndReleaseToMavenCentral --no-configuration-cache
 ```
 
 ## Architecture

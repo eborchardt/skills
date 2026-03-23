@@ -6,7 +6,7 @@ Each skill lives in its own top-level directory. Every `SKILL.md` keeps an exact
 
 ## Summary
 
-- Total skills: 131
+- Total skills: 127
 - Upstream repositories: 13
 - Attribution rule: the `Author` column uses the explicit skill front matter when present; otherwise it falls back to the upstream maintainer or organization.
 
@@ -25,9 +25,11 @@ Default output:
 CI:
 
 - `.github/workflows/skill-scanner.yml` runs the Cisco `skill-scanner` on push, pull request, and manual dispatch
+- push and pull request runs scan only the changed skill directories and fail only on changed-skill error-level findings
+- `workflow_dispatch` runs a full-repo audit and uploads the report artifact without blocking on inherited upstream findings
 - the workflow stores the full scan output as an artifact
 - SARIF upload to GitHub Code Scanning is best-effort and only succeeds when GitHub Code Security is enabled for the repository
-- the workflow fails when the processed report still contains error-level findings
+- the workflow fails when the processed report still contains changed-skill error-level findings
 
 ## Skills
 
@@ -49,7 +51,6 @@ CI:
 | Kotlin | [`configuration-properties-profiles-kotlin-safe`](./configuration-properties-profiles-kotlin-safe) | [Kotlin/kotlin-backend-agent-skills](https://github.com/Kotlin/kotlin-backend-agent-skills) |
 | Kotlin | [`dependency-conflict-resolver`](./dependency-conflict-resolver) | [Kotlin/kotlin-backend-agent-skills](https://github.com/Kotlin/kotlin-backend-agent-skills) |
 | runkids | [`devcontainer`](./devcontainer) | [runkids/skillshare](https://github.com/runkids/skillshare) |
-| OpenAI | [`develop-web-game`](./develop-web-game) | [openai/skills](https://github.com/openai/skills) |
 | OpenAI | [`doc`](./doc) | [openai/skills](https://github.com/openai/skills) |
 | Anthropic | [`doc-coauthoring`](./doc-coauthoring) | [anthropics/skills](https://github.com/anthropics/skills) |
 | Anthropic | [`docx`](./docx) | [anthropics/skills](https://github.com/anthropics/skills) |
@@ -122,10 +123,8 @@ CI:
 | Kotlin | [`schema-migration-planner`](./schema-migration-planner) | [Kotlin/kotlin-backend-agent-skills](https://github.com/Kotlin/kotlin-backend-agent-skills) |
 | OpenAI | [`screenshot`](./screenshot) | [openai/skills](https://github.com/openai/skills) |
 | OpenAI | [`security-best-practices`](./security-best-practices) | [openai/skills](https://github.com/openai/skills) |
-| OpenAI | [`security-ownership-map`](./security-ownership-map) | [openai/skills](https://github.com/openai/skills) |
 | OpenAI | [`security-threat-model`](./security-threat-model) | [openai/skills](https://github.com/openai/skills) |
 | OpenAI | [`sentry`](./sentry) | [openai/skills](https://github.com/openai/skills) |
-| Anthropic | [`skill-creator`](./skill-creator) | [anthropics/skills](https://github.com/anthropics/skills) |
 | runkids | [`skillshare`](./skillshare) | [runkids/skillshare](https://github.com/runkids/skillshare) |
 | Anthropic | [`slack-gif-creator`](./slack-gif-creator) | [anthropics/skills](https://github.com/anthropics/skills) |
 | Anthony Fu | [`slidev`](./slidev) | [antfu/skills](https://github.com/antfu/skills) |
@@ -160,7 +159,6 @@ CI:
 | vuejs-ai | [`vue-router-best-practices`](./vue-router-best-practices) | [antfu/skills](https://github.com/antfu/skills) |
 | vuejs-ai | [`vue-testing-best-practices`](./vue-testing-best-practices) | [antfu/skills](https://github.com/antfu/skills) |
 | Anthony Fu | [`vueuse-functions`](./vueuse-functions) | [antfu/skills](https://github.com/antfu/skills) |
-| Anthropic | [`web-artifacts-builder`](./web-artifacts-builder) | [anthropics/skills](https://github.com/anthropics/skills) |
 | Anthropic | [`webapp-testing`](./webapp-testing) | [anthropics/skills](https://github.com/anthropics/skills) |
 | Anthropic | [`xlsx`](./xlsx) | [anthropics/skills](https://github.com/anthropics/skills) |
 | OpenAI | [`yeet`](./yeet) | [openai/skills](https://github.com/openai/skills) |

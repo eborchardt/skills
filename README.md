@@ -24,7 +24,7 @@ Default output:
 
 CI:
 
-- `.github/workflows/skill-scanner.yml` runs the Cisco `skill-scanner` on push, pull request, and manual dispatch
+- `.github/workflows/skill-scanner.yml` runs Cisco's [`skill-scanner`](https://github.com/cisco-ai-defense/skill-scanner) on push, pull request, and manual dispatch
 - push and pull request runs scan only the changed skill directories and fail only on changed-skill error-level findings
 - `workflow_dispatch` runs a full-repo audit and uploads the report artifact without blocking on inherited upstream findings
 - the workflow stores the full scan output as an artifact

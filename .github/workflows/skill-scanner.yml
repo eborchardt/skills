@@ -61,9 +61,65 @@ jobs:
       - name: Summarize scanner results
         if: ${{ always() && hashFiles('.reports/skill-scanner/results.sarif') != '' }}
         run: |
-          python ./.scripts/summarize-skill-scanner-sarif.py \
-            .reports/skill-scanner/results.sarif \
-            > .reports/skill-scanner/summary.md
+          python - <<'PY' > .reports/skill-scanner/summary.md
+          import collections
+          import json
+          from pathlib import Path
+
+          def location_for(result: dict) -> str:
+              locations = result.get("locations") or []
+              if not locations:
+                  return "(no location)"
+              physical = locations[0].get("physicalLocation") or {}
+              artifact = physical.get("artifactLocation") or {}
+              uri = artifact.get("uri") or "(no location)"
+              region = physical.get("region") or {}
+              line = region.get("startLine")
+              return f"{uri}:{line}" if line else uri
+
+          def message_for(result: dict) -> str:
+              message = result.get("message") or {}
+              text = message.get("text") or message.get("markdown") or "(no message)"
+              return " ".join(text.split())
+
+          sarif_path = Path(".reports/skill-scanner/results.sarif")
+          data = json.loads(sarif_path.read_text())
+          runs = data.get("runs", [])
+          results = []
+          for run in runs:
+              results.extend(run.get("results", []))
+
+          levels = collections.Counter(result.get("level", "warning") for result in results)
+          rules = collections.Counter(result.get("ruleId", "(unknown-rule)") for result in results)
+
+          print("## Skill Scanner Summary")
+          print()
+          print(f"- Total results: {len(results)}")
+          for level in ("error", "warning", "note", "none"):
+              if levels.get(level):
+                  print(f"- {level}: {levels[level]}")
+
+          if rules:
+              print()
+              print("### Top Rule IDs")
+              print()
+              print("| Rule | Count |")
+              print("| --- | ---: |")
+              for rule_id, count in rules.most_common(10):
+                  print(f"| `{rule_id}` | {count} |")
+
+          if results:
+              print()
+              print(f"### First {min(20, len(results))} Findings")
+              print()
+              for index, result in enumerate(results[:20], start=1):
+                  level = result.get("level", "warning")
+                  rule_id = result.get("ruleId", "(unknown-rule)")
+                  location = location_for(result)
+                  message = message_for(result)
+                  print(f"{index}. [{level}] `{rule_id}` at `{location}`")
+                  print(f"   {message}")
+          PY
           tee -a "$GITHUB_STEP_SUMMARY" < .reports/skill-scanner/summary.md
 
       - name: Upload scanner artifacts
@@ -78,5 +134,11 @@ jobs:
         if: ${{ steps.scan.outputs.exit_code != '0' }}
         run: |
           echo "skill-scanner exited with code ${{ steps.scan.outputs.exit_code }}." >&2
-          echo "Review the 'Summarize scanner results' step, the GitHub job summary, or the skill-scanner-results artifact for details." >&2
+          if [[ -f .reports/skill-scanner/summary.md ]]; then
+            echo "----- skill-scanner summary -----" >&2
+            cat .reports/skill-scanner/summary.md >&2
+            echo "----- end skill-scanner summary -----" >&2
+          else
+            echo "Summary file not found. Review the skill-scanner-results artifact for details." >&2
+          fi
           exit 1

@@ -56,17 +56,23 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           sarif_path = Path(".reports/skill-scanner/results.sarif")
           data = json.loads(sarif_path.read_text())
+          workspace = os.environ.get("GITHUB_WORKSPACE", "")
           for run in data.get("runs", []):
               for result in run.get("results", []):
                   for location in result.get("locations") or []:
                       physical = location.get("physicalLocation") or {}
                       artifact = physical.get("artifactLocation") or {}
-                      if artifact.get("uri") == "(cross-skill analysis)":
+                      uri = artifact.get("uri")
+                      if uri == "(cross-skill analysis)":
                           artifact["uri"] = "cross-skill-analysis"
+                          continue
+                      if workspace and isinstance(uri, str) and uri.startswith(workspace + os.sep):
+                          artifact["uri"] = os.path.relpath(uri, workspace).replace(os.sep, "/")
           sarif_path.write_text(json.dumps(data, indent=2) + "\n")
           PY
 

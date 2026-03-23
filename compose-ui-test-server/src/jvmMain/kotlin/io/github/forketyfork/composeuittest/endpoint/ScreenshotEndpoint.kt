@@ -20,7 +20,7 @@ import java.io.File
 /**
  * Screenshot capture endpoint.
  *
- * GET /captureScreenshot?path=/tmp/screenshot.png - Capture and save screenshot
+ * GET /captureScreenshot?path=screenshot.png - Capture and save screenshot
  */
 internal class ScreenshotEndpoint(
     private val config: ComposeUiTestServerConfig,

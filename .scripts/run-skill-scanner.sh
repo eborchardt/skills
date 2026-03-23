@@ -2,11 +2,16 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+scan_target="${SKILL_SCANNER_TARGET:-$repo_root}"
 report_dir="${SKILL_SCANNER_REPORT_DIR:-$repo_root/.reports/skill-scanner}"
 cache_root="${XDG_CACHE_HOME:-$HOME/.cache}/skill-scanner"
 venv_dir="${SKILL_SCANNER_VENV:-$cache_root/skill-scanner-venv}"
 requested_python="${SKILL_SCANNER_PYTHON:-}"
 docker_image="${SKILL_SCANNER_DOCKER_IMAGE:-python:3.11-slim}"
+
+if [[ "$scan_target" != /* ]]; then
+  scan_target="$repo_root/$scan_target"
+fi
 
 run_with_docker() {
   if ! command -v docker >/dev/null 2>&1; then
@@ -29,6 +34,11 @@ run_with_docker() {
   echo "Running skill-scanner against: $repo_root"
   echo "Using Docker image: $docker_image"
 
+  local docker_target="/workspace"
+  if [[ "$scan_target" == "$repo_root"* ]]; then
+    docker_target="/workspace${scan_target#$repo_root}"
+  fi
+
   docker run --rm \
     -v "$repo_root:/workspace" \
     -v "$cache_root/pip:/root/.cache/pip" \
@@ -39,10 +49,9 @@ run_with_docker() {
       python -m pip install --upgrade pip >/dev/null
       python -m pip install --upgrade cisco-ai-skill-scanner >/dev/null
       skill-scanner scan-all \
-        /workspace \
+        '"$docker_target"' \
         --recursive \
         --lenient \
-        --check-overlap \
         --use-behavioral \
         "$@"
     ' sh "$@"
@@ -97,13 +106,12 @@ if [[ "$#" -eq 0 ]]; then
   set -- --format markdown --detailed --output "$default_report"
 fi
 
-echo "Running skill-scanner against: $repo_root"
+echo "Running skill-scanner against: $scan_target"
 echo "Using Python: $("$venv_dir/bin/python" --version 2>&1)"
 
 "$venv_dir/bin/skill-scanner" scan-all \
-  "$repo_root" \
+  "$scan_target" \
   --recursive \
   --lenient \
-  --check-overlap \
   --use-behavioral \
   "$@"

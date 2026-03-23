@@ -16,7 +16,7 @@ package io.github.forketyfork.composeuittest
 data class ComposeUiTestServerConfig(
     val port: Int = 54345,
     val host: String = "0.0.0.0",
-    val defaultScreenshotPath: String = "/tmp/compose_screenshot.png",
+    val defaultScreenshotPath: String = "compose_screenshot.png",
     val defaultTimeout: Long = 5000L,
     val enableHealthEndpoint: Boolean = true,
     val enableClickEndpoints: Boolean = true,

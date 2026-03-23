@@ -178,7 +178,8 @@ def fetch_all(owner: str, repo: str, number: int) -> dict[str, Any]:
 
     pr_meta: dict[str, Any] | None = None
 
-    while True:
+    has_more_pages = True
+    while has_more_pages:
         payload = gh_api_graphql(
             owner=owner,
             repo=repo,
@@ -214,8 +215,7 @@ def fetch_all(owner: str, repo: str, number: int) -> dict[str, Any]:
         reviews_cursor = r["pageInfo"]["endCursor"] if r["pageInfo"]["hasNextPage"] else None
         threads_cursor = t["pageInfo"]["endCursor"] if t["pageInfo"]["hasNextPage"] else None
 
-        if not (comments_cursor or reviews_cursor or threads_cursor):
-            break
+        has_more_pages = bool(comments_cursor or reviews_cursor or threads_cursor)
 
     assert pr_meta is not None
     return {

@@ -6,8 +6,8 @@ Each skill lives in its own top-level directory. Every `SKILL.md` keeps an exact
 
 ## Summary
 
-- Total skills: 129
-- Upstream repositories: 13
+- Total skills: 130
+- Upstream repositories: 14
 - Attribution rule: the `Author` column uses the explicit skill front matter when present; otherwise it falls back to the upstream maintainer or organization.
 
 ## Security Scanning
@@ -162,6 +162,7 @@ CI:
 | vuejs-ai | [`vue-testing-best-practices`](./vue-testing-best-practices) | [antfu/skills](https://github.com/antfu/skills) |
 | Anthony Fu | [`vueuse-functions`](./vueuse-functions) | [antfu/skills](https://github.com/antfu/skills) |
 | Anthropic | [`webapp-testing`](./webapp-testing) | [anthropics/skills](https://github.com/anthropics/skills) |
+| dgreenheck | [`webgpu-threejs-tsl`](./webgpu-threejs-tsl) | [dgreenheck/webgpu-claude-skill](https://github.com/dgreenheck/webgpu-claude-skill) |
 | Anthropic | [`xlsx`](./xlsx) | [anthropics/skills](https://github.com/anthropics/skills) |
 | OpenAI | [`yeet`](./yeet) | [openai/skills](https://github.com/openai/skills) |
 

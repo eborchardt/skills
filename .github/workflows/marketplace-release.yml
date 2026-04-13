@@ -1,0 +1,35 @@
+name: Marketplace Release
+
+on:
+  workflow_run:
+    workflows: ["Skill Scanner"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build marketplace manifest
+        run: |
+          chmod +x .scripts/generate-marketplace.sh
+          .scripts/generate-marketplace.sh
+
+      - name: Commit marketplace update
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update marketplace.json catalog"
+          file_pattern: ".claude-plugin/marketplace.json"

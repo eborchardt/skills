@@ -1,655 +1,659 @@
 {
-  "name": "JetBrains-Skills-Marketplace",
+  "name": "JetBrains-Skills",
+  "description": "Curated agent skills collection",
+  "owner": {
+    "name": "JetBrains"
+  },
   "plugins": [
     {
-      "name": "algorithmic-art",
-      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
-      "source": "./algorithmic-art"
-    },
-    {
-      "name": "antfu",
-      "description": "Anthony Fu's opinionated tooling and conventions for JavaScript/TypeScript projects. Use when setting up new projects, configuring ESLint/Prettier alternatives, monorepos, library publishing, or when the user mentions Anthony Fu's preferences.",
-      "source": "./antfu"
+      "name": "gws-gmail",
+      "description": "Gmail: Send, read, and manage email.",
+      "source": "././gws-gmail"
     },
     {
       "name": "antfu-web-design-guidelines",
-      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
-      "source": "./antfu-web-design-guidelines"
-    },
-    {
-      "name": "anthropics-pdf",
-      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
-      "source": "./anthropics-pdf"
-    },
-    {
-      "name": "brand-guidelines",
-      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
-      "source": "./brand-guidelines"
-    },
-    {
-      "name": "canvas-design",
-      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
-      "source": "./canvas-design"
-    },
-    {
-      "name": "changelog",
-      "description": "Generate CHANGELOG.md entry from recent commits in conventional format. Also",
-      "source": "./changelog"
-    },
-    {
-      "name": "ci-cd-containerization-advisor",
-      "description": "Design reproducible build, image, and deployment pipelines for Kotlin plus Spring applications, including CI verification, layered containers, rollout safety, and deployment-time migration coordination. Use when creating or improving Dockerfiles, CI workflows, image hardening, Kubernetes manifests, release gates, or deployment strategies for Spring Boot services, especially where build reproducibility and operational safety matter.",
-      "source": "./ci-cd-containerization-advisor"
-    },
-    {
-      "name": "cli-e2e-test",
-      "description": "Run isolated E2E tests in devcontainer from ai_docs/tests runbooks. Use this",
-      "source": "./cli-e2e-test"
-    },
-    {
-      "name": "cloudflare-deploy",
-      "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
-      "source": "./cloudflare-deploy"
-    },
-    {
-      "name": "codebase-audit",
-      "description": "Cross-validate CLI flags, docs, tests, and targets for consistency across the",
-      "source": "./codebase-audit"
-    },
-    {
-      "name": "compose-ui-test-server",
-      "description": "Control a running Compose Desktop application via HTTP. Use when you need to interact with UI elements, click buttons, enter text, wait for elements to appear, or capture screenshots in a Compose Desktop app that has compose-ui-test-server enabled.",
-      "source": "./compose-ui-test-server"
-    },
-    {
-      "name": "composition-patterns",
-      "description": "React composition patterns that scale. Use when refactoring components with",
-      "source": "./composition-patterns"
-    },
-    {
-      "name": "configuration-properties-profiles-kotlin-safe",
-      "description": "Design and diagnose Spring configuration, profiles, and `@ConfigurationProperties` binding for Kotlin applications. Use when property binding fails, environment-specific overrides behave unexpectedly, profile layering is confusing, secrets or defaults are modeled unsafely, or Kotlin nullability and constructor binding semantics make configuration errors hard to detect.",
-      "source": "./configuration-properties-profiles-kotlin-safe"
-    },
-    {
-      "name": "dependency-conflict-resolver",
-      "description": "Diagnose and resolve Gradle and Spring classpath conflicts, version drift, and binary incompatibilities in Kotlin applications. Use when `NoSuchMethodError`, `ClassNotFoundException`, linkage errors, duplicate logging bindings, Jackson or Hibernate mismatches, or BOM-versus-explicit-version conflicts appear, and the fix must respect the repository's real version authorities.",
-      "source": "./dependency-conflict-resolver"
-    },
-    {
-      "name": "devcontainer",
-      "description": "Run CLI commands, tests, and debugging inside the skillshare devcontainer.",
-      "source": "./devcontainer"
-    },
-    {
-      "name": "doc",
-      "description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.",
-      "source": "./doc"
-    },
-    {
-      "name": "doc-coauthoring",
-      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
-      "source": "./doc-coauthoring"
-    },
-    {
-      "name": "docx",
-      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
-      "source": "./docx"
-    },
-    {
-      "name": "domain-decomposition-api-design-advisor",
-      "description": "Decompose business scope into bounded contexts, module or service boundaries, workflows, and API contracts before implementation begins. Use when shaping a new feature, service, or major redesign; when requirements are underspecified; when consistency, idempotency, and integration boundaries must be made explicit; or when ADR-quality tradeoff reasoning is needed for Kotlin plus Spring systems.",
-      "source": "./domain-decomposition-api-design-advisor"
-    },
-    {
-      "name": "error-model-validation-architect",
-      "description": "Design and implement consistent API validation and error-handling behavior for Kotlin plus Spring services. Use when defining error payloads, mapping framework and domain exceptions, standardizing HTTP status codes, adding `@ControllerAdvice`, preventing internal-detail leakage, or ensuring clients can rely on stable machine-readable error semantics across endpoints.",
-      "source": "./error-model-validation-architect"
-    },
-    {
-      "name": "figma",
-      "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
-      "source": "./figma"
-    },
-    {
-      "name": "figma-implement-design",
-      "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.",
-      "source": "./figma-implement-design"
-    },
-    {
-      "name": "frontend-design",
-      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
-      "source": "./frontend-design"
-    },
-    {
-      "name": "gemini-api-dev",
-      "description": "Use this skill when building applications with Gemini models, Gemini API, working with multimodal content (text, images, audio, video), implementing function calling, using structured outputs, or needing current model specifications. Covers SDK usage (google-genai for Python, @google/genai for JavaScript/TypeScript, com.google.genai:google-genai for Java, google.golang.org/genai for Go), model selection, and API capabilities.",
-      "source": "./gemini-api-dev"
-    },
-    {
-      "name": "gemini-interactions-api",
-      "description": "Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent API. This skill covers the Interactions API, the recommended way to use Gemini models and agents in Python and TypeScript.",
-      "source": "./gemini-interactions-api"
-    },
-    {
-      "name": "gemini-live-api-dev",
-      "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), native audio features, function calling, session management, ephemeral tokens for client-side auth, and all Live API configuration options. SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript).",
-      "source": "./gemini-live-api-dev"
-    },
-    {
-      "name": "gh-address-comments",
-      "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
-      "source": "./gh-address-comments"
-    },
-    {
-      "name": "gh-fix-ci",
-      "description": "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.",
-      "source": "./gh-fix-ci"
-    },
-    {
-      "name": "gradle-kotlin-dsl-doctor",
-      "description": "Generate, debug, and repair Kotlin + Spring Gradle builds with minimal, compatible changes. Use when `build.gradle.kts` or `settings.gradle.kts` is failing, plugins or toolchains are incompatible, dependency management is drifting from the Spring Boot BOM, test or runtime classpaths are broken, or a Kotlin DSL patch must be safe and incremental.",
-      "source": "./gradle-kotlin-dsl-doctor"
-    },
-    {
-      "name": "gws-admin-reports",
-      "description": "Google Workspace Admin SDK: Audit logs and usage reports.",
-      "source": "./gws-admin-reports"
-    },
-    {
-      "name": "gws-calendar",
-      "description": "Google Calendar: Manage calendars and events.",
-      "source": "./gws-calendar"
-    },
-    {
-      "name": "gws-chat",
-      "description": "Google Chat: Manage Chat spaces and messages.",
-      "source": "./gws-chat"
-    },
-    {
-      "name": "gws-classroom",
-      "description": "Google Classroom: Manage classes, rosters, and coursework.",
-      "source": "./gws-classroom"
-    },
-    {
-      "name": "gws-docs",
-      "description": "Read and write Google Docs.",
-      "source": "./gws-docs"
-    },
-    {
-      "name": "gws-drive",
-      "description": "Google Drive: Manage files, folders, and shared drives.",
-      "source": "./gws-drive"
-    },
-    {
-      "name": "gws-events",
-      "description": "Subscribe to Google Workspace events.",
-      "source": "./gws-events"
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to review my UI, check accessibility, audit design, review UX, or check my site against best practices.",
+      "source": "././antfu-web-design-guidelines"
     },
     {
       "name": "gws-forms",
       "description": "Read and write Google Forms.",
-      "source": "./gws-forms"
-    },
-    {
-      "name": "gws-gmail",
-      "description": "Gmail: Send, read, and manage email.",
-      "source": "./gws-gmail"
-    },
-    {
-      "name": "gws-keep",
-      "description": "Manage Google Keep notes.",
-      "source": "./gws-keep"
-    },
-    {
-      "name": "gws-meet",
-      "description": "Manage Google Meet conferences.",
-      "source": "./gws-meet"
-    },
-    {
-      "name": "gws-modelarmor",
-      "description": "Google Model Armor: Filter user-generated content for safety.",
-      "source": "./gws-modelarmor"
-    },
-    {
-      "name": "gws-people",
-      "description": "Google People: Manage contacts and profiles.",
-      "source": "./gws-people"
-    },
-    {
-      "name": "gws-shared",
-      "description": "gws CLI: Shared patterns for authentication, global flags, and output formatting.",
-      "source": "./gws-shared"
-    },
-    {
-      "name": "gws-sheets",
-      "description": "Google Sheets: Read and write spreadsheets.",
-      "source": "./gws-sheets"
-    },
-    {
-      "name": "gws-slides",
-      "description": "Google Slides: Read and write presentations.",
-      "source": "./gws-slides"
-    },
-    {
-      "name": "gws-tasks",
-      "description": "Google Tasks: Manage task lists and tasks.",
-      "source": "./gws-tasks"
-    },
-    {
-      "name": "gws-workflow",
-      "description": "Google Workflow: Cross-service productivity workflows.",
-      "source": "./gws-workflow"
-    },
-    {
-      "name": "imagegen",
-      "description": "Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.",
-      "source": "./imagegen"
-    },
-    {
-      "name": "implement-feature",
-      "description": "Implement a feature from a spec file or description using TDD workflow. Use",
-      "source": "./implement-feature"
-    },
-    {
-      "name": "integration-resilience-engineer",
-      "description": "Design resilient HTTP, messaging, and scheduled integrations for Kotlin plus Spring services with explicit timeout budgets, retries, idempotency, circuit breakers, DLQ behavior, and failure observability. Use when integrating with unstable external systems, designing retry logic, handling duplicate delivery, preventing thundering herds, or making message-driven and scheduled workflows safe in production.",
-      "source": "./integration-resilience-engineer"
-    },
-    {
-      "name": "internal-comms",
-      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
-      "source": "./internal-comms"
-    },
-    {
-      "name": "jackson-kotlin-serialization-specialist",
-      "description": "Diagnose and design JSON serialization and deserialization behavior for Kotlin plus Jackson in Spring applications. Use when DTOs fail to deserialize, default parameters or nullability behave unexpectedly, date-time or enum formats drift, polymorphic payloads are involved, PATCH semantics must distinguish null from absent, or ObjectMapper changes risk breaking existing API or message contracts.",
-      "source": "./jackson-kotlin-serialization-specialist"
-    },
-    {
-      "name": "java-kotlin-migration-assistant",
-      "description": "Migrate Java code to Kotlin in Spring-based codebases without changing behavior, public contracts, framework compatibility, or binary assumptions unless explicitly intended. Use when converting classes incrementally, replacing Lombok patterns, managing platform types and nullability, preserving JPA and proxy behavior, or planning the safe migration order of a mixed Java and Kotlin codebase.",
-      "source": "./java-kotlin-migration-assistant"
-    },
-    {
-      "name": "jpa-spring-data-kotlin-mapper",
-      "description": "Model Kotlin persistence code correctly for Spring Data JPA and Hibernate, including entity design, relationships, fetch plans, repository queries, lazy loading, and common performance traps. Use when creating or reviewing entities and repositories, diagnosing N+1 or `LazyInitializationException`, placing indexes and uniqueness rules, or preventing Kotlin-specific ORM bugs such as `data class` entities and broken `equals` or `hashCode`.",
-      "source": "./jpa-spring-data-kotlin-mapper"
-    },
-    {
-      "name": "jupyter-notebook",
-      "description": "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.",
-      "source": "./jupyter-notebook"
-    },
-    {
-      "name": "kotlin-backend-jpa-entity-mapping",
-      "description": "Model Kotlin persistence code correctly for Spring Data JPA and Hibernate.",
-      "source": "./kotlin-backend-jpa-entity-mapping"
-    },
-    {
-      "name": "kotlin-idiomatic-refactorer-spring-aware",
-      "description": "Refactor Kotlin code toward clearer, more idiomatic design without breaking Spring behavior, serialization, persistence, or public contracts. Use when Java-flavored Kotlin needs cleanup, domain modeling should become more expressive, or boilerplate should be reduced, but the refactoring must remain safe for proxies, Jackson, JPA, configuration binding, and existing tests.",
-      "source": "./kotlin-idiomatic-refactorer-spring-aware"
-    },
-    {
-      "name": "kotlin-spring-proxy-compatibility",
-      "description": "Diagnose and prevent Kotlin plus Spring proxy failures around `@Transactional`, `@Cacheable`, `@Async`, method security, retry, configuration proxies, and JPA entity requirements. Use when AOP annotations appear to do nothing, transactional or cache behavior is inconsistent, compiler plugins may be missing, self-invocation is suspected, or Kotlin final-by-default semantics may break Spring behavior.",
-      "source": "./kotlin-spring-proxy-compatibility"
-    },
-    {
-      "name": "kotlin-tooling-agp9-migration",
-      "description": "Migrates Kotlin Multiplatform (KMP) projects to Android Gradle Plugin 9.0+.",
-      "source": "./kotlin-tooling-agp9-migration"
-    },
-    {
-      "name": "kotlin-tooling-cocoapods-spm-migration",
-      "description": "Migrate KMP projects from CocoaPods (kotlin(\"native.cocoapods\")) to Swift Package Manager (swiftPMDependencies DSL) — replaces pod() with swiftPackage(), transforms cocoapods.* imports to swiftPMImport.*, and reconfigures the Xcode project.",
-      "source": "./kotlin-tooling-cocoapods-spm-migration"
-    },
-    {
-      "name": "kotlin-tooling-java-to-kotlin",
-      "description": "Use when converting Java source files to idiomatic Kotlin, when user mentions",
-      "source": "./kotlin-tooling-java-to-kotlin"
-    },
-    {
-      "name": "linear",
-      "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
-      "source": "./linear"
-    },
-    {
-      "name": "managing-youtrack",
-      "description": "Interact with YouTrack issue tracker via REST API. Create, read, update, and",
-      "source": "./managing-youtrack"
-    },
-    {
-      "name": "mcp-builder",
-      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
-      "source": "./mcp-builder"
-    },
-    {
-      "name": "netlify-deploy",
-      "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
-      "source": "./netlify-deploy"
-    },
-    {
-      "name": "notion-knowledge-capture",
-      "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
-      "source": "./notion-knowledge-capture"
-    },
-    {
-      "name": "notion-meeting-intelligence",
-      "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
-      "source": "./notion-meeting-intelligence"
-    },
-    {
-      "name": "notion-research-documentation",
-      "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
-      "source": "./notion-research-documentation"
-    },
-    {
-      "name": "notion-spec-to-implementation",
-      "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
-      "source": "./notion-spec-to-implementation"
-    },
-    {
-      "name": "nuxt",
-      "description": "Nuxt full-stack Vue framework with SSR, auto-imports, and file-based routing. Use when working with Nuxt apps, server routes, useFetch, middleware, or hybrid rendering.",
-      "source": "./nuxt"
-    },
-    {
-      "name": "observability-integrator",
-      "description": "Design actionable observability for Kotlin plus Spring services across logs, metrics, tracing, and health endpoints. Use when instrumenting a service, improving incident diagnosis, defining SLO-driven metrics and alerts, adding trace propagation, controlling metric-cardinality cost, or ensuring async and coroutine flows remain observable in production.",
-      "source": "./observability-integrator"
-    },
-    {
-      "name": "openai-docs",
-      "description": "Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or explicit GPT-5.4 upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.",
-      "source": "./openai-docs"
-    },
-    {
-      "name": "openai-pdf",
-      "description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.",
-      "source": "./openai-pdf"
-    },
-    {
-      "name": "performance-concurrency-advisor",
-      "description": "Analyze and improve performance, throughput, latency, and concurrency behavior in Kotlin plus Spring services using real evidence from metrics, traces, SQL, thread or heap signals, and code paths. Use when endpoints are slow, pools saturate, coroutines or reactive flows block unexpectedly, N+1 or contention appears, or caching and parallelism decisions need precise, non-generic guidance.",
-      "source": "./performance-concurrency-advisor"
-    },
-    {
-      "name": "pinia",
-      "description": "Pinia official Vue state management library, type-safe and extensible. Use when defining stores, working with state/getters/actions, or implementing store patterns in Vue apps.",
-      "source": "./pinia"
-    },
-    {
-      "name": "playwright",
-      "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-      "source": "./playwright"
-    },
-    {
-      "name": "pnpm",
-      "description": "Node.js package manager with strict dependency resolution. Use when running pnpm specific commands, configuring workspaces, or managing dependencies with catalogs, patches, or overrides.",
-      "source": "./pnpm"
-    },
-    {
-      "name": "postgres-best-practices",
-      "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
-      "source": "./postgres-best-practices"
-    },
-    {
-      "name": "pptx",
-      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
-      "source": "./pptx"
-    },
-    {
-      "name": "production-incident-responder",
-      "description": "Guide production incident response for Kotlin plus Spring services from first alert through mitigation, diagnosis, and follow-up. Use when error rates spike, latency degrades, capacity saturates, a bad deploy or config change is suspected, or the team needs reversible mitigation first and deeper root-cause work second.",
-      "source": "./production-incident-responder"
-    },
-    {
-      "name": "project-context-ingestion",
-      "description": "Inspect a Kotlin + Spring repository before making changes or answering implementation, debugging, build, architecture, or review questions. Use when the agent must map modules, Spring Boot/Kotlin/Gradle/JDK versions, compiler plugins, profiles, dependencies, runtime stack, and architectural boundaries so later advice stays compatible with the real project.",
-      "source": "./project-context-ingestion"
-    },
-    {
-      "name": "react-best-practices",
-      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
-      "source": "./react-best-practices"
-    },
-    {
-      "name": "react-native-skills",
-      "description": "React Native and Expo best practices for building performant mobile apps. Use",
-      "source": "./react-native-skills"
-    },
-    {
-      "name": "render-deploy",
-      "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
-      "source": "./render-deploy"
-    },
-    {
-      "name": "schema-migration-planner",
-      "description": "Plan safe database schema evolution and zero-downtime change rollout for Kotlin plus Spring systems using Flyway, Liquibase, or equivalent migration tooling. Use when changing tables, columns, constraints, indexes, or data shape in systems with live traffic, rolling deploys, large datasets, or backward-compatibility requirements between old and new application versions.",
-      "source": "./schema-migration-planner"
-    },
-    {
-      "name": "screenshot",
-      "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
-      "source": "./screenshot"
-    },
-    {
-      "name": "security-best-practices",
-      "description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
-      "source": "./security-best-practices"
-    },
-    {
-      "name": "security-threat-model",
-      "description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
-      "source": "./security-threat-model"
-    },
-    {
-      "name": "sentry",
-      "description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.",
-      "source": "./sentry"
-    },
-    {
-      "name": "skill-creator",
-      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
-      "source": "./skill-creator"
-    },
-    {
-      "name": "skill-installer",
-      "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
-      "source": "./skill-installer"
-    },
-    {
-      "name": "skillshare",
-      "description": "Manages and syncs AI CLI skills across 50+ tools from a single source.",
-      "source": "./skillshare"
-    },
-    {
-      "name": "slack-gif-creator",
-      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.",
-      "source": "./slack-gif-creator"
-    },
-    {
-      "name": "slidev",
-      "description": "Create and present web-based slidedecks for developers using Slidev with Markdown, Vue components, code highlighting, animations, and interactive features. Use when building technical presentations, conference talks, code walkthroughs, teaching materials, or developer decks.",
-      "source": "./slidev"
-    },
-    {
-      "name": "sora",
-      "description": "Use when the user asks to generate, edit, extend, poll, list, download, or delete Sora videos, create reusable non-human Sora character references, or run local multi-video queues via the bundled CLI (`scripts/sora.py`); includes requests like: (i) generate AI video, (ii) edit this Sora clip, (iii) extend this video, (iv) create a character reference, (v) download video/thumbnail/spritesheet, and (vi) Sora batch planning; requires `OPENAI_API_KEY` and Sora API access.",
-      "source": "./sora"
-    },
-    {
-      "name": "speech",
-      "description": "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.",
-      "source": "./speech"
-    },
-    {
-      "name": "spreadsheet",
-      "description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.",
-      "source": "./spreadsheet"
-    },
-    {
-      "name": "spring-context-di-reasoning",
-      "description": "Diagnose Spring application context startup failures, bean graph problems, missing or duplicate beans, circular dependencies, conditional auto-configuration mismatches, and profile-related wiring issues in Kotlin + Spring projects. Use when the app does not start, a bean is not created or is created unexpectedly, auto-configuration behaves strangely, or a minimal DI fix is needed instead of a broad rewrite.",
-      "source": "./spring-context-di-reasoning"
-    },
-    {
-      "name": "spring-kotlin-code-review",
-      "description": "Review Kotlin + Spring changes for behavioral regressions, transaction and proxy bugs, API and serialization mistakes, persistence risks, security issues, configuration drift, and missing tests. Use when reviewing a PR, diff, patch, or design change where generic style-focused review would miss Spring-specific correctness and operational risks.",
-      "source": "./spring-kotlin-code-review"
-    },
-    {
-      "name": "spring-mvc-webflux-api-builder",
-      "description": "Design and generate Kotlin Spring HTTP APIs with correct controller signatures, DTOs, validation, serialization assumptions, error handling, and web tests. Use when building or changing REST endpoints, choosing between MVC and WebFlux, modeling request and response payloads, standardizing error responses, or avoiding Kotlin-specific validation and Jackson mistakes.",
-      "source": "./spring-mvc-webflux-api-builder"
-    },
-    {
-      "name": "spring-security-configurator-auditor",
-      "description": "Design and audit Spring Security configurations for Kotlin plus Spring services, including filter chains, JWT or OAuth2 resource server setup, method security, CORS, CSRF rationale, and public endpoint exposure. Use when adding or reviewing authentication and authorization, narrowing access rules, validating token handling, or checking for insecure defaults and accidental exposure.",
-      "source": "./spring-security-configurator-auditor"
-    },
-    {
-      "name": "stacktrace-log-triage",
-      "description": "Diagnose Kotlin + Spring failures from stack traces, startup logs, runtime logs, and related metric anomalies, then separate root cause from wrapper exceptions and propose safe next steps. Use when the application fails to start, an endpoint crashes, logs are noisy or deeply nested, or the agent must produce both a quick mitigation and a proper long-term fix without guessing.",
-      "source": "./stacktrace-log-triage"
-    },
-    {
-      "name": "teamcity-cli",
-      "description": "Use when working with TeamCity CI/CD or when user provides a TeamCity build URL. Use `teamcity` CLI for builds, logs, jobs, queues, and agents.",
-      "source": "./teamcity-cli"
-    },
-    {
-      "name": "test-suite-builder",
-      "description": "Design and generate layered Kotlin + Spring tests that balance speed, realism, and regression value across unit, slice, and integration levels. Use when adding coverage for business logic, controllers, repositories, security, serialization, or end-to-end workflows, and when generic AI output would otherwise overuse `@SpringBootTest`, misuse mocks, or ignore MockK and coroutine testing idioms.",
-      "source": "./test-suite-builder"
-    },
-    {
-      "name": "theme-factory",
-      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
-      "source": "./theme-factory"
-    },
-    {
-      "name": "transaction-consistency-designer",
-      "description": "Design safe transaction boundaries, rollback behavior, idempotency, locking, and consistency strategies for Kotlin + Spring business workflows. Use when a feature writes to the database, spans multiple repositories, publishes messages, calls external systems, suffers from partial commits or duplicate processing, or needs precise `@Transactional`, propagation, or isolation guidance.",
-      "source": "./transaction-consistency-designer"
-    },
-    {
-      "name": "transcribe",
-      "description": "Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.",
-      "source": "./transcribe"
-    },
-    {
-      "name": "tsdown",
-      "description": "Bundle TypeScript and JavaScript libraries with blazing-fast speed powered by Rolldown. Use when building libraries, generating type declarations, bundling for multiple formats, or migrating from tsup.",
-      "source": "./tsdown"
-    },
-    {
-      "name": "turborepo",
-      "description": "Turborepo monorepo build system guidance. Triggers on: turbo.json, task pipelines,",
-      "source": "./turborepo"
-    },
-    {
-      "name": "ui-website-style",
-      "description": "Skillshare frontend design system for the React dashboard (ui/) and Docusaurus",
-      "source": "./ui-website-style"
-    },
-    {
-      "name": "unocss",
-      "description": "UnoCSS instant atomic CSS engine, superset of Tailwind CSS. Use when configuring UnoCSS, writing utility rules, shortcuts, or working with presets like Wind, Icons, Attributify.",
-      "source": "./unocss"
-    },
-    {
-      "name": "update-docs",
-      "description": "Update website docs to match recent code changes, cross-validating every flag",
-      "source": "./update-docs"
-    },
-    {
-      "name": "upgrade-breaking-change-navigator",
-      "description": "Plan and execute risky Spring Boot, Spring Framework, Kotlin, Gradle, JDK, and major dependency upgrades with explicit compatibility checkpoints and rollback thinking. Use when preparing or diagnosing a major version jump, navigating `javax` to `jakarta`, K2 adoption, plugin compatibility, auto-configuration drift, behavior changes in Hibernate or Security, or project-specific upgrade sequencing.",
-      "source": "./upgrade-breaking-change-navigator"
-    },
-    {
-      "name": "vercel-deploy",
-      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
-      "source": "./vercel-deploy"
-    },
-    {
-      "name": "vercel-deploy-claimable",
-      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
-      "source": "./vercel-deploy-claimable"
-    },
-    {
-      "name": "vercel-labs-web-design-guidelines",
-      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
-      "source": "./vercel-labs-web-design-guidelines"
-    },
-    {
-      "name": "vertex-ai-api-dev",
-      "description": "Guides the usage of Gemini API on Google Cloud Vertex AI with the Gen AI SDK. Use when the user asks about using Gemini in an enterprise environment or explicitly mentions Vertex AI. Covers SDK usage (Python, JS/TS, Go, Java, C#), capabilities like Live API, tools, multimedia generation, caching, and batch prediction.",
-      "source": "./vertex-ai-api-dev"
-    },
-    {
-      "name": "vite",
-      "description": "Vite build tool configuration, plugin API, SSR, and Vite 8 Rolldown migration. Use when working with Vite projects, vite.config.ts, Vite plugins, or building libraries/SSR apps with Vite.",
-      "source": "./vite"
-    },
-    {
-      "name": "vitepress",
-      "description": "VitePress static site generator powered by Vite and Vue. Use when building documentation sites, configuring themes, or writing Markdown with Vue components.",
-      "source": "./vitepress"
-    },
-    {
-      "name": "vitest",
-      "description": "Vitest fast unit testing framework powered by Vite with Jest-compatible API. Use when writing tests, mocking, configuring coverage, or working with test filtering and fixtures.",
-      "source": "./vitest"
-    },
-    {
-      "name": "vue",
-      "description": "Vue 3 Composition API, script setup macros, reactivity system, and built-in components. Use when writing Vue SFCs, defineProps/defineEmits/defineModel, watchers, or using Transition/Teleport/Suspense/KeepAlive.",
-      "source": "./vue"
-    },
-    {
-      "name": "vue-best-practices",
-      "description": "MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API.",
-      "source": "./vue-best-practices"
-    },
-    {
-      "name": "vue-router-best-practices",
-      "description": "Vue Router 4 patterns, navigation guards, route params, and route-component lifecycle interactions.",
-      "source": "./vue-router-best-practices"
+      "source": "././gws-forms"
     },
     {
       "name": "vue-testing-best-practices",
       "description": "Use for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.",
-      "source": "./vue-testing-best-practices"
+      "source": "././vue-testing-best-practices"
     },
     {
-      "name": "vueuse-functions",
-      "description": "Apply VueUse composables where appropriate to build concise, maintainable Vue.js / Nuxt features.",
-      "source": "./vueuse-functions"
+      "name": "ci-cd-containerization-advisor",
+      "description": "Design reproducible build, image, and deployment pipelines for Kotlin plus Spring applications, including CI verification, layered containers, rollout safety, and deployment-time migration coordination. Use when creating or improving Dockerfiles, CI workflows, image hardening, Kubernetes manifests, release gates, or deployment strategies for Spring Boot services, especially where build reproducibility and operational safety matter.",
+      "source": "././ci-cd-containerization-advisor"
     },
     {
-      "name": "webapp-testing",
-      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
-      "source": "./webapp-testing"
+      "name": "postgres-best-practices",
+      "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "source": "././postgres-best-practices"
+    },
+    {
+      "name": "nuxt",
+      "description": "Nuxt full-stack Vue framework with SSR, auto-imports, and file-based routing. Use when working with Nuxt apps, server routes, useFetch, middleware, or hybrid rendering.",
+      "source": "././nuxt"
+    },
+    {
+      "name": "devcontainer",
+      "description": ">-",
+      "source": "././devcontainer"
+    },
+    {
+      "name": "spring-kotlin-code-review",
+      "description": "Review Kotlin + Spring changes for behavioral regressions, transaction and proxy bugs, API and serialization mistakes, persistence risks, security issues, configuration drift, and missing tests. Use when reviewing a PR, diff, patch, or design change where generic style-focused review would miss Spring-specific correctness and operational risks.",
+      "source": "././spring-kotlin-code-review"
+    },
+    {
+      "name": "playwright",
+      "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
+      "source": "././playwright"
+    },
+    {
+      "name": "skill-installer",
+      "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+      "source": "././skill-installer"
+    },
+    {
+      "name": "test-suite-builder",
+      "description": "Design and generate layered Kotlin + Spring tests that balance speed, realism, and regression value across unit, slice, and integration levels. Use when adding coverage for business logic, controllers, repositories, security, serialization, or end-to-end workflows, and when generic AI output would otherwise overuse `@SpringBootTest`, misuse mocks, or ignore MockK and coroutine testing idioms.",
+      "source": "././test-suite-builder"
+    },
+    {
+      "name": "kotlin-tooling-cocoapods-spm-migration",
+      "description": "Migrate KMP projects from CocoaPods (kotlin(native.cocoapods)) to Swift Package Manager (swiftPMDependencies DSL) — replaces pod() with swiftPackage(), transforms cocoapods.* imports to swiftPMImport.*, and reconfigures the Xcode project.",
+      "source": "././kotlin-tooling-cocoapods-spm-migration"
+    },
+    {
+      "name": "gemini-live-api-dev",
+      "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), native audio features, function calling, session management, ephemeral tokens for client-side auth, and all Live API configuration options. SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript).",
+      "source": "././gemini-live-api-dev"
+    },
+    {
+      "name": "stacktrace-log-triage",
+      "description": "Diagnose Kotlin + Spring failures from stack traces, startup logs, runtime logs, and related metric anomalies, then separate root cause from wrapper exceptions and propose safe next steps. Use when the application fails to start, an endpoint crashes, logs are noisy or deeply nested, or the agent must produce both a quick mitigation and a proper long-term fix without guessing.",
+      "source": "././stacktrace-log-triage"
+    },
+    {
+      "name": "kotlin-tooling-java-to-kotlin",
+      "description": ">",
+      "source": "././kotlin-tooling-java-to-kotlin"
+    },
+    {
+      "name": "slidev",
+      "description": "Create and present web-based slidedecks for developers using Slidev with Markdown, Vue components, code highlighting, animations, and interactive features. Use when building technical presentations, conference talks, code walkthroughs, teaching materials, or developer decks.",
+      "source": "././slidev"
+    },
+    {
+      "name": "notion-knowledge-capture",
+      "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+      "source": "././notion-knowledge-capture"
+    },
+    {
+      "name": "render-deploy",
+      "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
+      "source": "././render-deploy"
+    },
+    {
+      "name": "brand-guidelines",
+      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+      "source": "././brand-guidelines"
+    },
+    {
+      "name": "antfu",
+      "description": "Anthony Fu's opinionated tooling and conventions for JavaScript/TypeScript projects. Use when setting up new projects, configuring ESLint/Prettier alternatives, monorepos, library publishing, or when the user mentions Anthony Fu's preferences.",
+      "source": "././antfu"
+    },
+    {
+      "name": "gh-fix-ci",
+      "description": "Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.",
+      "source": "././gh-fix-ci"
+    },
+    {
+      "name": "docx",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "source": "././docx"
+    },
+    {
+      "name": "transcribe",
+      "description": "Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.",
+      "source": "././transcribe"
+    },
+    {
+      "name": "notion-research-documentation",
+      "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+      "source": "././notion-research-documentation"
+    },
+    {
+      "name": "gws-calendar",
+      "description": "Google Calendar: Manage calendars and events.",
+      "source": "././gws-calendar"
+    },
+    {
+      "name": "figma-implement-design",
+      "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.",
+      "source": "././figma-implement-design"
+    },
+    {
+      "name": "update-docs",
+      "description": ">-",
+      "source": "././update-docs"
+    },
+    {
+      "name": "gradle-kotlin-dsl-doctor",
+      "description": "Generate, debug, and repair Kotlin + Spring Gradle builds with minimal, compatible changes. Use when `build.gradle.kts` or `settings.gradle.kts` is failing, plugins or toolchains are incompatible, dependency management is drifting from the Spring Boot BOM, test or runtime classpaths are broken, or a Kotlin DSL patch must be safe and incremental.",
+      "source": "././gradle-kotlin-dsl-doctor"
+    },
+    {
+      "name": "changelog",
+      "description": ">-",
+      "source": "././changelog"
+    },
+    {
+      "name": "sora",
+      "description": "Use when the user asks to generate, edit, extend, poll, list, download, or delete Sora videos, create reusable non-human Sora character references, or run local multi-video queues via the bundled CLI (`scripts/sora.py`); includes requests like: (i) generate AI video, (ii) edit this Sora clip, (iii) extend this video, (iv) create a character reference, (v) download video/thumbnail/spritesheet, and (vi) Sora batch planning; requires `OPENAI_API_KEY` and Sora API access.",
+      "source": "././sora"
+    },
+    {
+      "name": "mcp-builder",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "source": "././mcp-builder"
+    },
+    {
+      "name": "speech",
+      "description": "Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.",
+      "source": "././speech"
+    },
+    {
+      "name": "theme-factory",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "source": "././theme-factory"
+    },
+    {
+      "name": "gws-modelarmor",
+      "description": "Google Model Armor: Filter user-generated content for safety.",
+      "source": "././gws-modelarmor"
+    },
+    {
+      "name": "pnpm",
+      "description": "Node.js package manager with strict dependency resolution. Use when running pnpm specific commands, configuring workspaces, or managing dependencies with catalogs, patches, or overrides.",
+      "source": "././pnpm"
+    },
+    {
+      "name": "openai-docs",
+      "description": "Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or explicit GPT-5.4 upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.",
+      "source": "././openai-docs"
+    },
+    {
+      "name": "skillshare",
+      "description": "|",
+      "source": "././skillshare"
+    },
+    {
+      "name": "pinia",
+      "description": "Pinia official Vue state management library, type-safe and extensible. Use when defining stores, working with state/getters/actions, or implementing store patterns in Vue apps.",
+      "source": "././pinia"
+    },
+    {
+      "name": "gws-classroom",
+      "description": "Google Classroom: Manage classes, rosters, and coursework.",
+      "source": "././gws-classroom"
+    },
+    {
+      "name": "figma",
+      "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+      "source": "././figma"
+    },
+    {
+      "name": "jpa-spring-data-kotlin-mapper",
+      "description": "Model Kotlin persistence code correctly for Spring Data JPA and Hibernate, including entity design, relationships, fetch plans, repository queries, lazy loading, and common performance traps. Use when creating or reviewing entities and repositories, diagnosing N+1 or `LazyInitializationException`, placing indexes and uniqueness rules, or preventing Kotlin-specific ORM bugs such as `data class` entities and broken `equals` or `hashCode`.",
+      "source": "././jpa-spring-data-kotlin-mapper"
+    },
+    {
+      "name": "linear",
+      "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+      "source": "././linear"
     },
     {
       "name": "webgpu-threejs-tsl",
       "description": "Comprehensive guide for developing WebGPU-enabled Three.js applications using TSL (Three.js Shading Language). Covers WebGPU renderer setup, TSL syntax and node materials, compute shaders, post-processing effects, and WGSL integration. Use this skill when working with Three.js WebGPU, TSL shaders, node materials, or GPU compute in Three.js.",
-      "source": "./webgpu-threejs-tsl"
+      "source": "././webgpu-threejs-tsl"
     },
     {
-      "name": "xlsx",
-      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\\"the xlsx in my downloads\\\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
-      "source": "./xlsx"
+      "name": "notion-meeting-intelligence",
+      "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+      "source": "././notion-meeting-intelligence"
+    },
+    {
+      "name": "security-best-practices",
+      "description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
+      "source": "././security-best-practices"
+    },
+    {
+      "name": "tsdown",
+      "description": "Bundle TypeScript and JavaScript libraries with blazing-fast speed powered by Rolldown. Use when building libraries, generating type declarations, bundling for multiple formats, or migrating from tsup.",
+      "source": "././tsdown"
+    },
+    {
+      "name": "vue-router-best-practices",
+      "description": "Vue Router 4 patterns, navigation guards, route params, and route-component lifecycle interactions.",
+      "source": "././vue-router-best-practices"
+    },
+    {
+      "name": "vercel-labs-web-design-guidelines",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to review my UI, check accessibility, audit design, review UX, or check my site against best practices.",
+      "source": "././vercel-labs-web-design-guidelines"
+    },
+    {
+      "name": "cloudflare-deploy",
+      "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+      "source": "././cloudflare-deploy"
+    },
+    {
+      "name": "teamcity-cli",
+      "description": "Use when working with TeamCity CI/CD or when user provides a TeamCity build URL. Use `teamcity` CLI for builds, logs, jobs, queues, and agents.",
+      "source": "././teamcity-cli"
+    },
+    {
+      "name": "compose-ui-test-server",
+      "description": "Control a running Compose Desktop application via HTTP. Use when you need to interact with UI elements, click buttons, enter text, wait for elements to appear, or capture screenshots in a Compose Desktop app that has compose-ui-test-server enabled.",
+      "source": "././compose-ui-test-server"
+    },
+    {
+      "name": "java-kotlin-migration-assistant",
+      "description": "Migrate Java code to Kotlin in Spring-based codebases without changing behavior, public contracts, framework compatibility, or binary assumptions unless explicitly intended. Use when converting classes incrementally, replacing Lombok patterns, managing platform types and nullability, preserving JPA and proxy behavior, or planning the safe migration order of a mixed Java and Kotlin codebase.",
+      "source": "././java-kotlin-migration-assistant"
+    },
+    {
+      "name": "unocss",
+      "description": "UnoCSS instant atomic CSS engine, superset of Tailwind CSS. Use when configuring UnoCSS, writing utility rules, shortcuts, or working with presets like Wind, Icons, Attributify.",
+      "source": "././unocss"
+    },
+    {
+      "name": "project-context-ingestion",
+      "description": "Inspect a Kotlin + Spring repository before making changes or answering implementation, debugging, build, architecture, or review questions. Use when the agent must map modules, Spring Boot/Kotlin/Gradle/JDK versions, compiler plugins, profiles, dependencies, runtime stack, and architectural boundaries so later advice stays compatible with the real project.",
+      "source": "././project-context-ingestion"
+    },
+    {
+      "name": "vitepress",
+      "description": "VitePress static site generator powered by Vite and Vue. Use when building documentation sites, configuring themes, or writing Markdown with Vue components.",
+      "source": "././vitepress"
+    },
+    {
+      "name": "internal-comms",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "source": "././internal-comms"
+    },
+    {
+      "name": "composition-patterns",
+      "description": "description:",
+      "source": "././composition-patterns"
+    },
+    {
+      "name": "gemini-api-dev",
+      "description": "Use this skill when building applications with Gemini models, Gemini API, working with multimodal content (text, images, audio, video), implementing function calling, using structured outputs, or needing current model specifications. Covers SDK usage (google-genai for Python, @google/genai for JavaScript/TypeScript, com.google.genai:google-genai for Java, google.golang.org/genai for Go), model selection, and API capabilities.",
+      "source": "././gemini-api-dev"
+    },
+    {
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "source": "././webapp-testing"
+    },
+    {
+      "name": "imagegen",
+      "description": "Use when the user asks to generate or edit images via the OpenAI Image API (for example: generate image, edit/inpaint/mask, background removal or replacement, transparent background, product shots, concept art, covers, or batch variants); run the bundled CLI (`scripts/image_gen.py`) and require `OPENAI_API_KEY` for live calls.",
+      "source": "././imagegen"
+    },
+    {
+      "name": "vite",
+      "description": "Vite build tool configuration, plugin API, SSR, and Vite 8 Rolldown migration. Use when working with Vite projects, vite.config.ts, Vite plugins, or building libraries/SSR apps with Vite.",
+      "source": "././vite"
     },
     {
       "name": "yeet",
       "description": "Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).",
-      "source": "./yeet"
+      "source": "././yeet"
+    },
+    {
+      "name": "configuration-properties-profiles-kotlin-safe",
+      "description": "Design and diagnose Spring configuration, profiles, and `@ConfigurationProperties` binding for Kotlin applications. Use when property binding fails, environment-specific overrides behave unexpectedly, profile layering is confusing, secrets or defaults are modeled unsafely, or Kotlin nullability and constructor binding semantics make configuration errors hard to detect.",
+      "source": "././configuration-properties-profiles-kotlin-safe"
+    },
+    {
+      "name": "dependency-conflict-resolver",
+      "description": "Diagnose and resolve Gradle and Spring classpath conflicts, version drift, and binary incompatibilities in Kotlin applications. Use when `NoSuchMethodError`, `ClassNotFoundException`, linkage errors, duplicate logging bindings, Jackson or Hibernate mismatches, or BOM-versus-explicit-version conflicts appear, and the fix must respect the repository's real version authorities.",
+      "source": "././dependency-conflict-resolver"
+    },
+    {
+      "name": "managing-youtrack",
+      "description": "|",
+      "source": "././managing-youtrack"
+    },
+    {
+      "name": "gws-sheets",
+      "description": "Google Sheets: Read and write spreadsheets.",
+      "source": "././gws-sheets"
+    },
+    {
+      "name": "security-threat-model",
+      "description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.",
+      "source": "././security-threat-model"
+    },
+    {
+      "name": "sentry",
+      "description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.",
+      "source": "././sentry"
+    },
+    {
+      "name": "vueuse-functions",
+      "description": "Apply VueUse composables where appropriate to build concise, maintainable Vue.js / Nuxt features.",
+      "source": "././vueuse-functions"
+    },
+    {
+      "name": "vue-best-practices",
+      "description": "MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API.",
+      "source": "././vue-best-practices"
+    },
+    {
+      "name": "gws-docs",
+      "description": "Read and write Google Docs.",
+      "source": "././gws-docs"
+    },
+    {
+      "name": "gws-admin-reports",
+      "description": "Google Workspace Admin SDK: Audit logs and usage reports.",
+      "source": "././gws-admin-reports"
+    },
+    {
+      "name": "kotlin-spring-proxy-compatibility",
+      "description": "Diagnose and prevent Kotlin plus Spring proxy failures around `@Transactional`, `@Cacheable`, `@Async`, method security, retry, configuration proxies, and JPA entity requirements. Use when AOP annotations appear to do nothing, transactional or cache behavior is inconsistent, compiler plugins may be missing, self-invocation is suspected, or Kotlin final-by-default semantics may break Spring behavior.",
+      "source": "././kotlin-spring-proxy-compatibility"
+    },
+    {
+      "name": "gws-workflow",
+      "description": "Google Workflow: Cross-service productivity workflows.",
+      "source": "././gws-workflow"
+    },
+    {
+      "name": "vue",
+      "description": "Vue 3 Composition API, script setup macros, reactivity system, and built-in components. Use when writing Vue SFCs, defineProps/defineEmits/defineModel, watchers, or using Transition/Teleport/Suspense/KeepAlive.",
+      "source": "././vue"
+    },
+    {
+      "name": "react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "source": "././react-best-practices"
+    },
+    {
+      "name": "cli-e2e-test",
+      "description": ">-",
+      "source": "././cli-e2e-test"
+    },
+    {
+      "name": "vercel-deploy",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like deploy my app, deploy and give me the link, push this live, or create a preview deployment.",
+      "source": "././vercel-deploy"
+    },
+    {
+      "name": "observability-integrator",
+      "description": "Design actionable observability for Kotlin plus Spring services across logs, metrics, tracing, and health endpoints. Use when instrumenting a service, improving incident diagnosis, defining SLO-driven metrics and alerts, adding trace propagation, controlling metric-cardinality cost, or ensuring async and coroutine flows remain observable in production.",
+      "source": "././observability-integrator"
+    },
+    {
+      "name": "integration-resilience-engineer",
+      "description": "Design resilient HTTP, messaging, and scheduled integrations for Kotlin plus Spring services with explicit timeout budgets, retries, idempotency, circuit breakers, DLQ behavior, and failure observability. Use when integrating with unstable external systems, designing retry logic, handling duplicate delivery, preventing thundering herds, or making message-driven and scheduled workflows safe in production.",
+      "source": "././integration-resilience-engineer"
+    },
+    {
+      "name": "ui-website-style",
+      "description": ">-",
+      "source": "././ui-website-style"
+    },
+    {
+      "name": "xlsx",
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\the xlsx in my downloads\\) — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "source": "././xlsx"
+    },
+    {
+      "name": "frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "source": "././frontend-design"
+    },
+    {
+      "name": "kotlin-tooling-agp9-migration",
+      "description": ">",
+      "source": "././kotlin-tooling-agp9-migration"
+    },
+    {
+      "name": "transaction-consistency-designer",
+      "description": "Design safe transaction boundaries, rollback behavior, idempotency, locking, and consistency strategies for Kotlin + Spring business workflows. Use when a feature writes to the database, spans multiple repositories, publishes messages, calls external systems, suffers from partial commits or duplicate processing, or needs precise `@Transactional`, propagation, or isolation guidance.",
+      "source": "././transaction-consistency-designer"
+    },
+    {
+      "name": "gws-keep",
+      "description": "Manage Google Keep notes.",
+      "source": "././gws-keep"
+    },
+    {
+      "name": "notion-spec-to-implementation",
+      "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+      "source": "././notion-spec-to-implementation"
+    },
+    {
+      "name": "spring-mvc-webflux-api-builder",
+      "description": "Design and generate Kotlin Spring HTTP APIs with correct controller signatures, DTOs, validation, serialization assumptions, error handling, and web tests. Use when building or changing REST endpoints, choosing between MVC and WebFlux, modeling request and response payloads, standardizing error responses, or avoiding Kotlin-specific validation and Jackson mistakes.",
+      "source": "././spring-mvc-webflux-api-builder"
+    },
+    {
+      "name": "codebase-audit",
+      "description": ">-",
+      "source": "././codebase-audit"
+    },
+    {
+      "name": "spring-security-configurator-auditor",
+      "description": "Design and audit Spring Security configurations for Kotlin plus Spring services, including filter chains, JWT or OAuth2 resource server setup, method security, CORS, CSRF rationale, and public endpoint exposure. Use when adding or reviewing authentication and authorization, narrowing access rules, validating token handling, or checking for insecure defaults and accidental exposure.",
+      "source": "././spring-security-configurator-auditor"
+    },
+    {
+      "name": "kotlin-idiomatic-refactorer-spring-aware",
+      "description": "Refactor Kotlin code toward clearer, more idiomatic design without breaking Spring behavior, serialization, persistence, or public contracts. Use when Java-flavored Kotlin needs cleanup, domain modeling should become more expressive, or boilerplate should be reduced, but the refactoring must remain safe for proxies, Jackson, JPA, configuration binding, and existing tests.",
+      "source": "././kotlin-idiomatic-refactorer-spring-aware"
+    },
+    {
+      "name": "vitest",
+      "description": "Vitest fast unit testing framework powered by Vite with Jest-compatible API. Use when writing tests, mocking, configuring coverage, or working with test filtering and fixtures.",
+      "source": "././vitest"
+    },
+    {
+      "name": "vertex-ai-api-dev",
+      "description": "Guides the usage of Gemini API on Google Cloud Vertex AI with the Gen AI SDK. Use when the user asks about using Gemini in an enterprise environment or explicitly mentions Vertex AI. Covers SDK usage (Python, JS/TS, Go, Java, C#), capabilities like Live API, tools, multimedia generation, caching, and batch prediction.",
+      "source": "././vertex-ai-api-dev"
+    },
+    {
+      "name": "jackson-kotlin-serialization-specialist",
+      "description": "Diagnose and design JSON serialization and deserialization behavior for Kotlin plus Jackson in Spring applications. Use when DTOs fail to deserialize, default parameters or nullability behave unexpectedly, date-time or enum formats drift, polymorphic payloads are involved, PATCH semantics must distinguish null from absent, or ObjectMapper changes risk breaking existing API or message contracts.",
+      "source": "././jackson-kotlin-serialization-specialist"
+    },
+    {
+      "name": "anthropics-pdf",
+      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "source": "././anthropics-pdf"
+    },
+    {
+      "name": "openai-pdf",
+      "description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.",
+      "source": "././openai-pdf"
+    },
+    {
+      "name": "doc",
+      "description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.",
+      "source": "././doc"
+    },
+    {
+      "name": "gws-meet",
+      "description": "Manage Google Meet conferences.",
+      "source": "././gws-meet"
+    },
+    {
+      "name": "gws-shared",
+      "description": "gws CLI: Shared patterns for authentication, global flags, and output formatting.",
+      "source": "././gws-shared"
+    },
+    {
+      "name": "upgrade-breaking-change-navigator",
+      "description": "Plan and execute risky Spring Boot, Spring Framework, Kotlin, Gradle, JDK, and major dependency upgrades with explicit compatibility checkpoints and rollback thinking. Use when preparing or diagnosing a major version jump, navigating `javax` to `jakarta`, K2 adoption, plugin compatibility, auto-configuration drift, behavior changes in Hibernate or Security, or project-specific upgrade sequencing.",
+      "source": "././upgrade-breaking-change-navigator"
+    },
+    {
+      "name": "screenshot",
+      "description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.",
+      "source": "././screenshot"
+    },
+    {
+      "name": "schema-migration-planner",
+      "description": "Plan safe database schema evolution and zero-downtime change rollout for Kotlin plus Spring systems using Flyway, Liquibase, or equivalent migration tooling. Use when changing tables, columns, constraints, indexes, or data shape in systems with live traffic, rolling deploys, large datasets, or backward-compatibility requirements between old and new application versions.",
+      "source": "././schema-migration-planner"
+    },
+    {
+      "name": "gws-people",
+      "description": "Google People: Manage contacts and profiles.",
+      "source": "././gws-people"
+    },
+    {
+      "name": "gws-slides",
+      "description": "Google Slides: Read and write presentations.",
+      "source": "././gws-slides"
+    },
+    {
+      "name": "turborepo",
+      "description": "|",
+      "source": "././turborepo"
+    },
+    {
+      "name": "gws-chat",
+      "description": "Google Chat: Manage Chat spaces and messages.",
+      "source": "././gws-chat"
+    },
+    {
+      "name": "slack-gif-creator",
+      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like make me a GIF of X doing Y for Slack.",
+      "source": "././slack-gif-creator"
+    },
+    {
+      "name": "implement-feature",
+      "description": ">-",
+      "source": "././implement-feature"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "source": "././skill-creator"
+    },
+    {
+      "name": "doc-coauthoring",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "source": "././doc-coauthoring"
+    },
+    {
+      "name": "kotlin-backend-jpa-entity-mapping",
+      "description": ">",
+      "source": "././kotlin-backend-jpa-entity-mapping"
+    },
+    {
+      "name": "jupyter-notebook",
+      "description": "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.",
+      "source": "././jupyter-notebook"
+    },
+    {
+      "name": "domain-decomposition-api-design-advisor",
+      "description": "Decompose business scope into bounded contexts, module or service boundaries, workflows, and API contracts before implementation begins. Use when shaping a new feature, service, or major redesign; when requirements are underspecified; when consistency, idempotency, and integration boundaries must be made explicit; or when ADR-quality tradeoff reasoning is needed for Kotlin plus Spring systems.",
+      "source": "././domain-decomposition-api-design-advisor"
+    },
+    {
+      "name": "error-model-validation-architect",
+      "description": "Design and implement consistent API validation and error-handling behavior for Kotlin plus Spring services. Use when defining error payloads, mapping framework and domain exceptions, standardizing HTTP status codes, adding `@ControllerAdvice`, preventing internal-detail leakage, or ensuring clients can rely on stable machine-readable error semantics across endpoints.",
+      "source": "././error-model-validation-architect"
+    },
+    {
+      "name": "gws-tasks",
+      "description": "Google Tasks: Manage task lists and tasks.",
+      "source": "././gws-tasks"
+    },
+    {
+      "name": "spring-context-di-reasoning",
+      "description": "Diagnose Spring application context startup failures, bean graph problems, missing or duplicate beans, circular dependencies, conditional auto-configuration mismatches, and profile-related wiring issues in Kotlin + Spring projects. Use when the app does not start, a bean is not created or is created unexpectedly, auto-configuration behaves strangely, or a minimal DI fix is needed instead of a broad rewrite.",
+      "source": "././spring-context-di-reasoning"
+    },
+    {
+      "name": "spreadsheet",
+      "description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.",
+      "source": "././spreadsheet"
+    },
+    {
+      "name": "gws-drive",
+      "description": "Google Drive: Manage files, folders, and shared drives.",
+      "source": "././gws-drive"
+    },
+    {
+      "name": "pptx",
+      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\deck,\\ \\slides,\\ \\presentation,\\ or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "source": "././pptx"
+    },
+    {
+      "name": "gws-events",
+      "description": "Subscribe to Google Workspace events.",
+      "source": "././gws-events"
+    },
+    {
+      "name": "performance-concurrency-advisor",
+      "description": "Analyze and improve performance, throughput, latency, and concurrency behavior in Kotlin plus Spring services using real evidence from metrics, traces, SQL, thread or heap signals, and code paths. Use when endpoints are slow, pools saturate, coroutines or reactive flows block unexpectedly, N+1 or contention appears, or caching and parallelism decisions need precise, non-generic guidance.",
+      "source": "././performance-concurrency-advisor"
+    },
+    {
+      "name": "gh-address-comments",
+      "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
+      "source": "././gh-address-comments"
+    },
+    {
+      "name": "netlify-deploy",
+      "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
+      "source": "././netlify-deploy"
+    },
+    {
+      "name": "production-incident-responder",
+      "description": "Guide production incident response for Kotlin plus Spring services from first alert through mitigation, diagnosis, and follow-up. Use when error rates spike, latency degrades, capacity saturates, a bad deploy or config change is suspected, or the team needs reversible mitigation first and deeper root-cause work second.",
+      "source": "././production-incident-responder"
+    },
+    {
+      "name": "gemini-interactions-api",
+      "description": "Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent API. This skill covers the Interactions API, the recommended way to use Gemini models and agents in Python and TypeScript.",
+      "source": "././gemini-interactions-api"
+    },
+    {
+      "name": "vercel-deploy-claimable",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like deploy my app, deploy and give me the link, push this live, or create a preview deployment.",
+      "source": "././vercel-deploy-claimable"
+    },
+    {
+      "name": "algorithmic-art",
+      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+      "source": "././algorithmic-art"
+    },
+    {
+      "name": "canvas-design",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+      "source": "././canvas-design"
+    },
+    {
+      "name": "react-native-skills",
+      "description": "description:",
+      "source": "././react-native-skills"
     }
   ]
 }
